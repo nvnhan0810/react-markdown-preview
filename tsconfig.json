@@ -114,6 +114,6 @@
   ],
   "include": [
     "src/",
-    "src/**/*.module.css" // include css files while building the project using tsc
+    "src/**/*.css" // include css files while building the project using tsc
   ]
 }

@@ -1,6 +1,6 @@
 {
   "name": "react-markdown-preview",
-  "version": "1.0.0",
+  "version": "1.0.3",
   "description": "My Markdown Preview",
   "main": "dist/index.js",
   "files": [
@@ -49,6 +49,6 @@
     "unified": "^11.0.5"
   },
   "peerDependencies": {
-    "react": "^22.13.0"
+    "react": "^18.3.1"
   }
 }

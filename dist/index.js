@@ -13,7 +13,7 @@ const remark_gfm_1 = __importDefault(require("remark-gfm"));
 const remark_parse_1 = __importDefault(require("remark-parse"));
 const remark_rehype_1 = __importDefault(require("remark-rehype"));
 const unified_1 = require("unified");
-require("./highlight.module.css");
+require("./highlight.css");
 const MarkdownPreview = ({ doc }) => {
     const processor = (0, unified_1.unified)()
         .use(remark_parse_1.default)

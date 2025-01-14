@@ -7,7 +7,7 @@ import remarkGfm from 'remark-gfm';
 import remarkParse from 'remark-parse';
 import remarkRehype from 'remark-rehype';
 import { unified } from "unified";
-import "./highlight.module.css";
+import "./highlight.css";
 
 export const MarkdownPreview = ({ doc }: { doc: string }) => {
     const processor = unified()
