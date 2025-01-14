@@ -1,10 +1,36 @@
-import * as React from 'react'
-import styles from './styles.module.css'
+import 'github-markdown-css/github-markdown-light.css';
+import { toJsxRuntime } from 'hast-util-to-jsx-runtime';
+import React from 'react';
+import { Fragment, jsx, jsxs } from 'react/jsx-runtime';
+import rehypeHighlight from 'rehype-highlight';
+import remarkGfm from 'remark-gfm';
+import remarkParse from 'remark-parse';
+import remarkRehype from 'remark-rehype';
+import { unified } from "unified";
+import "./highlight.module.css";
 
-interface Props {
-  text: string
-}
+export const MarkdownPreview = ({ doc }: { doc: string }) => {
+    const processor = unified()
+        .use(remarkParse)
+        .use(remarkGfm)
+        .use(remarkRehype, { allowDangerousHtml: true })
+        .use(rehypeHighlight);
 
-export const ExampleComponent = ({ text }: Props) => {
-  return <div className={styles.test}>Example Component: {text}</div>
+    const mdastTree = processor.parse(doc);
+    const hastTree = processor.runSync(mdastTree, doc)
+
+    const result = toJsxRuntime(hastTree, {
+        Fragment,
+        ignoreInvalidStyle: true,
+        jsx,
+        jsxs,
+        passKeys: true,
+        passNode: true
+    });
+
+    return (
+        <div className="markdown-body">
+            {result}
+        </div>
+    );
 }

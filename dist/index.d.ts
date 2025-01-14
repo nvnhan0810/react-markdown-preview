@@ -1,6 +1,6 @@
-import * as React from 'react';
-interface Props {
-    text: string;
-}
-export declare const ExampleComponent: ({ text }: Props) => React.JSX.Element;
-export {};
+import 'github-markdown-css/github-markdown-light.css';
+import React from 'react';
+import "./highlight.module.css";
+export declare const MarkdownPreview: ({ doc }: {
+    doc: string;
+}) => React.JSX.Element;
