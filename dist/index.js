@@ -4,7 +4,6 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.MarkdownPreview = void 0;
-require("github-markdown-css/github-markdown-light.css");
 const hast_util_to_jsx_runtime_1 = require("hast-util-to-jsx-runtime");
 const react_1 = __importDefault(require("react"));
 const jsx_runtime_1 = require("react/jsx-runtime");
@@ -13,7 +12,6 @@ const remark_gfm_1 = __importDefault(require("remark-gfm"));
 const remark_parse_1 = __importDefault(require("remark-parse"));
 const remark_rehype_1 = __importDefault(require("remark-rehype"));
 const unified_1 = require("unified");
-require("./highlight.css");
 const MarkdownPreview = ({ doc }) => {
     const processor = (0, unified_1.unified)()
         .use(remark_parse_1.default)

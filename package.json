@@ -1,19 +1,27 @@
 {
   "name": "react-markdown-preview",
-  "version": "1.0.5",
+  "version": "1.0.11",
   "description": "My Markdown Preview",
   "main": "dist/index.js",
   "files": [
-    "dist"
+    "dist",
+    "markdown.css",
+    "markdown-light.css",
+    "markdown-dark.css",
+    "highlight.css"
   ],
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
       "default": "./dist/index.js"
+    },
+    "./dist/*.css": {
+      "import": "./dist/*.css",
+      "require": "./dist/*.css"
     }
   },
   "scripts": {
-    "copy-files": "copyfiles -u 1 src/**/*.css dist/",
+    "copy-files": "copyfiles -u 1 src/**/*.css ",
     "build": "tsc"
   },
   "repository": {
@@ -40,7 +48,6 @@
     "typescript": "^5.7.3"
   },
   "dependencies": {
-    "github-markdown-css": "^5.8.1",
     "hast-util-to-jsx-runtime": "^2.3.2",
     "rehype-highlight": "^7.0.1",
     "remark-gfm": "^4.0.0",
