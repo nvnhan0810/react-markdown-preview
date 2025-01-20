@@ -1,6 +1,6 @@
 {
   "name": "react-markdown-preview",
-  "version": "1.0.11",
+  "version": "1.0.16",
   "description": "My Markdown Preview",
   "main": "dist/index.js",
   "files": [

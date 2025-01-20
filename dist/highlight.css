@@ -1,60 +1,147 @@
-/*
+/*!
+  Theme: StackOverflow Light
+  Description: Light theme as used on stackoverflow.com
+  Author: stackoverflow.com
+  Maintainer: @Hirse
+  Website: https://github.com/StackExchange/Stacks
+  License: MIT
+  Updated: 2021-05-15
 
-Visual Studio-like style based on original C# coloring by Jason Diamond <jason@diamond.name>
-
+  Updated for @stackoverflow/stacks v0.64.0
+  Code Blocks: /blob/v0.64.0/lib/css/components/_stacks-code-blocks.less
+  Colors: /blob/v0.64.0/lib/css/exports/_stacks-constants-colors.less
 */
-.hljs {
-    background: white;
-    color: black;
+
+.dark {
+    color-scheme: dark;
+    --highlight-color: #ffffff;
+    --highlight-bg: #1c1b1b;
+    --highlight-comment: #999999;
+    --highlight-keyword: #88aece;
+    --highlight-attribute: #88aece;
+    --highlight-symbol: #c59bc1;
+    --highlight-namespace: #f08d49;
+    --highlight-keyword: #88aece;
+    --highlight-variable: #b5bd68;
+    --highlight-punctuation: #cccccc;
+    --highlight-literal: #f08d49;
+    --highlight-deletion: #de7176;
+    --highlight-addition: #76c490;
 }
 
-.hljs-comment,
-.hljs-quote,
-.hljs-variable {
-    color: #008000;
+.light {
+    color-scheme: light;
+    --highlight-color: #2f3337;
+    --highlight-bg: #f6f6f6;
+    --highlight-comment: #656e77;
+    --highlight-keyword: #015692;
+    --highlight-attribute: #015692;
+    --highlight-symbol: #803378;
+    --highlight-namespace: #b75501;
+    --highlight-keyword: #015692;
+    --highlight-variable: #54790d;
+    --highlight-punctuation: #535a60;
+    --highlight-literal: #b75501;
+    --highlight-deletion: #c02d2e;
+    --highlight-addition: #2f6f44;
+}
+
+
+.hljs {
+    /* var(--highlight-color) */
+    color: var(--highlight-color);
+    /* var(--highlight-bg) */
+    background: var(--highlight-bg);
+}
+
+.hljs-subst {
+    /* var(--highlight-color) */
+    color: var(--highlight-color);
+}
+
+.hljs-comment {
+    /* var(--highlight-comment) */
+    color: var(--highlight-comment);
 }
 
 .hljs-keyword,
 .hljs-selector-tag,
-.hljs-built_in,
-.hljs-name,
-.hljs-tag {
-    color: #00f;
-}
-
-.hljs-string,
-.hljs-title,
-.hljs-section,
-.hljs-attribute,
-.hljs-literal,
-.hljs-template-tag,
-.hljs-template-variable,
-.hljs-type,
-.hljs-addition {
-    color: #a31515;
-}
-
-.hljs-deletion,
-.hljs-selector-attr,
-.hljs-selector-pseudo,
-.hljs-meta {
-    color: #2b91af;
-}
-
-.hljs-doctag {
-    color: #808080;
+.hljs-meta .hljs-keyword,
+.hljs-doctag,
+.hljs-section {
+    /* var(--highlight-keyword) */
+    color: var(--highlight-keyword);
 }
 
 .hljs-attr {
-    color: #f00;
+    /* var(--highlight-attribute); */
+    color: var(--highlight-attribute);
 }
 
+.hljs-attribute {
+    /* var(--highlight-symbol) */
+    color: var(--highlight-symbol);
+}
+
+.hljs-name,
+.hljs-type,
+.hljs-number,
+.hljs-selector-id,
+.hljs-quote,
+.hljs-template-tag {
+    /* var(--highlight-namespace) */
+    color: var(--highlight-namespace);
+}
+
+.hljs-selector-class {
+    /* var(--highlight-keyword) */
+    color: var(--highlight-keyword);
+}
+
+.hljs-string,
+.hljs-regexp,
 .hljs-symbol,
-.hljs-bullet,
-.hljs-link {
-    color: #00b0e8;
+.hljs-variable,
+.hljs-template-variable,
+.hljs-link,
+.hljs-selector-attr {
+    /* var(--highlight-variable) */
+    color: var(--highlight-variable);
 }
 
+.hljs-meta,
+.hljs-selector-pseudo {
+    /* var(--highlight-keyword) */
+    color: var(--highlight-keyword);
+}
+
+.hljs-built_in,
+.hljs-title,
+.hljs-literal {
+    /* var(--highlight-literal) */
+    color: var(--highlight-literal);
+}
+
+.hljs-bullet,
+.hljs-code {
+    /* var(--highlight-punctuation) */
+    color: var(--highlight-punctuation);
+}
+
+.hljs-meta .hljs-string {
+    /* var(--highlight-variable) */
+    color: var(--highlight-variable);
+}
+
+.hljs-deletion {
+    /* var(--highlight-deletion) */
+    color: var(--highlight-deletion);
+}
+
+.hljs-addition {
+    /* var(--highlight-addition) */
+    color: var(--highlight-addition);
+}
 
 .hljs-emphasis {
     font-style: italic;
@@ -62,4 +149,13 @@ Visual Studio-like style based on original C# coloring by Jason Diamond <jason@d
 
 .hljs-strong {
     font-weight: bold;
+}
+
+.hljs-formula,
+.hljs-operator,
+.hljs-params,
+.hljs-property,
+.hljs-punctuation,
+.hljs-tag {
+    /* purposely ignored */
 }
