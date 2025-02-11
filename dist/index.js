@@ -7,17 +7,21 @@ exports.MarkdownPreview = void 0;
 const hast_util_to_jsx_runtime_1 = require("hast-util-to-jsx-runtime");
 const react_1 = __importDefault(require("react"));
 const jsx_runtime_1 = require("react/jsx-runtime");
+const rehype_autolink_headings_1 = __importDefault(require("rehype-autolink-headings"));
 const rehype_highlight_1 = __importDefault(require("rehype-highlight"));
+const rehype_slug_1 = __importDefault(require("rehype-slug"));
 const remark_gfm_1 = __importDefault(require("remark-gfm"));
 const remark_parse_1 = __importDefault(require("remark-parse"));
 const remark_rehype_1 = __importDefault(require("remark-rehype"));
 const unified_1 = require("unified");
-const MarkdownPreview = ({ doc }) => {
+const MarkdownPreview = ({ doc, tocHeading = 'Nội dung' }) => {
     const processor = (0, unified_1.unified)()
         .use(remark_parse_1.default)
         .use(remark_gfm_1.default)
         .use(remark_rehype_1.default, { allowDangerousHtml: true })
-        .use(rehype_highlight_1.default);
+        .use(rehype_highlight_1.default)
+        .use(rehype_slug_1.default)
+        .use(rehype_autolink_headings_1.default);
     const mdastTree = processor.parse(doc);
     const hastTree = processor.runSync(mdastTree, doc);
     const result = (0, hast_util_to_jsx_runtime_1.toJsxRuntime)(hastTree, {
